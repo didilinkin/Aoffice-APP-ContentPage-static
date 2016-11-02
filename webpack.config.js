@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     // 指定打包的入口文件，每有一个键值对，就是一个入口文件
     entry: [
@@ -11,9 +11,9 @@ module.exports = {
     // 配置打包结果，path定义了输出的文件夹，filename则定义了打包结果文件的名称，
     // filename里面的[name]会由entry中的键替换,例子中的/build/bundle.js便是生成的文件。
     output: {
-        path: __dirname + '/build',
+        path: path.resolve( __dirname + 'build' ),
         filename: "bundle.js",
-        publicPath: '/build/',
+        publicPath: '/build/'
     },
     // 定义了对模块的处理逻辑，这里可以用loaders定义了一系列的加载器，以及一些正则。
     // 当需要加载的文件匹配test的正则时，就会进行处理
@@ -26,7 +26,7 @@ module.exports = {
                     test: /\.jsx?$/,
                     loaders: [
                         "react-hot-loader/webpack",
-                        'babel-loader?presets[]=react,presets[]=es2015'
+                        'babel-loader?presets[]=react,presets[]=es2015',
                     ],
                     exclude: /node_modules/
                 },
@@ -39,12 +39,25 @@ module.exports = {
                     // specify option using quary
                     test: /\.tsx?$/,
                     loader: 'ts-loader?compiler=ntypescript'
+                },
+                {
+                    test: /\.(png|jpg)$/,
+                    loader: 'url?limit=25000'
                 }
             ],
             // specify Option using 'ts' property
             ts: {
                 compiler: 'ntypescript'
             }
+    },
+    resolve:{
+        alias:{
+            // 引入Elf库
+            'Elf': path.resolve( 
+                __dirname,
+                './src/style/Elf/' 
+            )
+        }
     },
     //  这里定义了需要使用的插件，比如commonsPlugin在打包多个入口文件时会提取出公用的部分，生成common.js
     plugins: [
