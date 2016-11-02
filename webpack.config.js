@@ -34,8 +34,17 @@ module.exports = {
                     test: /\.sass$/,
                     // loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
                     loader: 'style!css!sass?sourceMap'
+                },
+                {
+                    // specify option using quary
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader?compiler=ntypescript'
                 }
-            ]
+            ],
+            // specify Option using 'ts' property
+            ts: {
+                compiler: 'ntypescript'
+            }
     },
     //  这里定义了需要使用的插件，比如commonsPlugin在打包多个入口文件时会提取出公用的部分，生成common.js
     plugins: [

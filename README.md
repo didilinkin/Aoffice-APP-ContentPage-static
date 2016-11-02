@@ -15,3 +15,6 @@
 3. 将`node-sass-binding`压缩文件中的内容全部放入`C:\node-sass`文件夹内
 4. 此时`node-sass`环境组合完成,可执行`yarn run build`命令进行打包了
 
+## 已安装`TypeScript`模块，可载入`.ts/.tsx`文件进行编译
+暂未将TS引入到主要文件中
+
