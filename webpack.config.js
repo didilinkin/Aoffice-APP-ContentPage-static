@@ -53,9 +53,9 @@ module.exports = {
     resolve:{
         alias:{
             // 引入Elf库
-            'Elf': path.resolve( 
+            'Elf': path.resolve(
                 __dirname,
-                './src/style/Elf/' 
+                './src/style/Elf/'
             )
         }
     },

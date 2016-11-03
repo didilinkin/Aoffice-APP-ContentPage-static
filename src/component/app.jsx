@@ -1,7 +1,5 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-
-// import '../style/mixins.sass'
 import '../style/app.sass'
 
 const App = React.createClass({
