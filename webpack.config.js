@@ -32,7 +32,7 @@ module.exports = {
                 },
                 {
                     test: /\.sass$/,
-                    // loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
+                    // loader: ExtractTextPlugin.extract('style','css!sass?sourceMap')
                     loader: 'style!css!sass?sourceMap'
                 },
                 {
@@ -56,6 +56,11 @@ module.exports = {
             'Elf': path.resolve(
                 __dirname,
                 './src/style/Elf/'
+            ),
+            // 引入Gulp 编译好的CSS
+            'css': path.resolve(
+                __dirname,
+                './src/css/'
             )
         }
     },
