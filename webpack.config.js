@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     // 指定打包的入口文件，每有一个键值对，就是一个入口文件
     entry: [
@@ -11,9 +11,9 @@ module.exports = {
     // 配置打包结果，path定义了输出的文件夹，filename则定义了打包结果文件的名称，
     // filename里面的[name]会由entry中的键替换,例子中的/build/bundle.js便是生成的文件。
     output: {
-        path: path.resolve( __dirname + 'build' ),
+        path: __dirname + '/build',
         filename: "bundle.js",
-        publicPath: '/build/'
+        publicPath: 'build/',
     },
     // 定义了对模块的处理逻辑，这里可以用loaders定义了一系列的加载器，以及一些正则。
     // 当需要加载的文件匹配test的正则时，就会进行处理
@@ -42,7 +42,7 @@ module.exports = {
                 },
                 {
                     test: /\.(png|jpg)$/,
-                    loader: 'url?limit=25000'
+                    loader: 'url-loader?limit=10000&name=/img/[hash:8].[name].[ext]'
                 }
             ],
             // specify Option using 'ts' property
