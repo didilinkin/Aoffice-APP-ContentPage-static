@@ -6,10 +6,6 @@ const App = React.createClass({
     render () {
         return (
             <div className="app">
-                <a>
-                    App
-                </a>
-                <div className="test" />
             </div>
         );
     }
