@@ -33,7 +33,7 @@ module.exports = {
                 {
                     test: /\.sass$/,
                     // loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
-                    loader: 'style!css!sass?sourceMap'
+                    loader: 'style!css!sass'
                 },
                 {
                     // specify option using quary
